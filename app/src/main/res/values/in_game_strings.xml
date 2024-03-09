@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="cross_step">Крестики ходят</string>
+    <string name="zero_step">Нолики ходят</string>
+    <string name="cross_win">Крестики победили</string>
+    <string name="zero_win">Нолики победили</string>
+    <string name="draw">Ничья</string>
+    <string name="restart">Перезагрузить</string>
+
+
+</resources>
