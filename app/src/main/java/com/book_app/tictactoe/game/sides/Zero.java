@@ -1,7 +1,8 @@
-package com.book_app.tictactoe.GameObjects;
+package com.book_app.tictactoe.game.sides;
 
 
 import androidx.annotation.NonNull;
+
 import com.book_app.tictactoe.R;
 
 public class Zero extends Side {
@@ -12,7 +13,7 @@ public class Zero extends Side {
     }
 
     @Override
-    int getImage() {
+    public int getImage() {
         return pictureId;
     }
 

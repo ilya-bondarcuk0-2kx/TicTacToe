@@ -4,49 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity">
+    android:background="@drawable/main_background"
 
-    <Button
+    tools:context=".activities.local.MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="457dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="16dp"
+        android:foregroundGravity="center"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/main_game_name_2" />
+
+    <ImageButton
         android:id="@+id/play_btn"
-        android:layout_width="247dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="180dp"
-        android:text="@string/play"
+        android:layout_width="272dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="336dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/res_not_found"
+        android:scaleType="fitXY"
+        android:src="@drawable/main_play"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.187" />
 
-    <Button
+    <ImageButton
         android:id="@+id/multiplayer_btn"
-        android:layout_width="247dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="256dp"
-        android:text="@string/multiplayer"
-
+        android:layout_width="272dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="424dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/res_not_found"
+        android:scaleType="centerCrop"
+        android:src="@drawable/main_multiplayer"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.255" />
 
-    <Button
+    <ImageButton
         android:id="@+id/exit_btn"
-        android:layout_width="247dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="332dp"
-        android:text="@string/exit"
+        android:layout_width="272dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="512dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/res_not_found"
+        android:scaleType="fitXY"
+        android:src="@drawable/main_exit"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.384" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/settings_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
+        android:backgroundTint="@color/green"
         android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_menu_manage" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
