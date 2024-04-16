@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="backgroundTint">@color/blue</item>
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/alfa_slab_one</item>
+    </style>
+
+</resources>
