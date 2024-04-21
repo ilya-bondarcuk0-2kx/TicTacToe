@@ -8,5 +8,9 @@
     <string name="draw">Ничья</string>
     <string name="restart">Перезагрузить</string>
 
+    <!-- For spinner on bot activity  -->
+
+    <string name="bot_difficulty">Сложность бота</string>
+
 
 </resources>

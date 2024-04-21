@@ -22,25 +22,19 @@ import java.net.SocketException;
 import java.util.Objects;
 
 
-public class GameConnectionHandler {
+public class ConnectionHandler {
 
 
 
-    public static class ServerConnection{
-        public static Socket sockets;
+    public static class ServerConnection {
+
         public static void connectToServer(String host, int port){
-
-
 
             new Thread(new Runnable() {
                 @Override
                 public void run() {
                     socket = new Socket();
-                    try {
-                        socket.setTcpNoDelay(true);
-                    } catch (SocketException e) {
-                        Log.w("SocketException", Objects.requireNonNull(e.getMessage()));
-                    }
+
                     try{
                         socket.connect(new InetSocketAddress(host, port), 300);
                         isConnected = true;
@@ -50,21 +44,17 @@ public class GameConnectionHandler {
                     }
                 }
             }).start();
-
         }
 
         public static void disconnectFromServer() {
 
             if(isConnected()) {
                 try {
-
                     socket.close();
-
                 } catch (IOException e) {
                     Log.w("IOException", Objects.requireNonNull(e.getMessage()));
                 }
             }
-
         }
     }
 

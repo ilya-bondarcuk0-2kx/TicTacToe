@@ -24,9 +24,7 @@ public class GameFieldModel {
 
 
     public void updateCell(int index){
-
         gameField.updateCell(index);
-
     }
 
     public CheckResult getCheckResult(){

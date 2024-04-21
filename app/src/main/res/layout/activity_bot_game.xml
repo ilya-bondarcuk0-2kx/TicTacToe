@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.local.GameActivity">
-
-
+    tools:context=".activities.local.BotGameActivity">
 
 
     <LinearLayout
@@ -20,8 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,14 +30,14 @@
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/res_not_found"
-
+                android:backgroundTint="@color/dark_green"
                 android:scaleType="fitCenter" />
 
             <ImageButton
                 android:id="@+id/img2"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
-
+                android:backgroundTint="@color/dark_green"
                 android:contentDescription="@string/res_not_found"
                 android:scaleType="fitCenter"
                 tools:ignore="ImageContrastCheck" />
@@ -49,7 +46,7 @@
                 android:id="@+id/img3"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
-
+                android:backgroundTint="@color/dark_green"
                 android:contentDescription="@string/res_not_found"
                 android:scaleType="fitCenter" />
         </LinearLayout>
@@ -64,6 +61,7 @@
                 android:id="@+id/img4"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
+                android:backgroundTint="@color/dark_green"
                 android:contentDescription="@string/res_not_found"
                 android:scaleType="fitCenter" />
 
@@ -71,6 +69,7 @@
                 android:id="@+id/img5"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
+                android:backgroundTint="@color/dark_green"
                 android:contentDescription="@string/res_not_found"
                 android:scaleType="fitCenter" />
 
@@ -78,6 +77,7 @@
                 android:id="@+id/img6"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
+                android:backgroundTint="@color/dark_green"
                 android:contentDescription="@string/res_not_found"
                 android:scaleType="fitCenter"
                 tools:ignore="ImageContrastCheck" />
@@ -94,7 +94,7 @@
                 android:id="@+id/img7"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
-
+                android:backgroundTint="@color/dark_green"
                 android:contentDescription="@string/res_not_found"
                 android:scaleType="fitCenter" />
 
@@ -102,7 +102,7 @@
                 android:id="@+id/img8"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
-
+                android:backgroundTint="@color/dark_green"
                 android:contentDescription="@string/res_not_found"
                 android:scaleType="fitCenter" />
 
@@ -110,7 +110,7 @@
                 android:id="@+id/img9"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
-
+                android:backgroundTint="@color/dark_green"
                 android:contentDescription="@string/res_not_found"
                 android:scaleType="fitCenter" />
 
@@ -137,6 +137,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.252"
-        app:srcCompat="@drawable/app_icon" />
+        app:srcCompat="@drawable/app_icon"
+        android:contentDescription="TODO" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

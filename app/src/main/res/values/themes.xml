@@ -1,8 +1,17 @@
+
+
+
 <resources>
-    <!-- Base application theme. -->
+    <!-- Light -->
     <style name="Base.Theme.Light.TicTacToe" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimary">@color/dark_green</item>
 
     </style>
 
+    <!-- Dark -->
+    <style name="Base.Theme.Dark.TicTacToe" parent="Theme.Material3.Dark.NoActionBar">
+
+        <item name="colorPrimary">@color/red</item>
+
+    </style>
 </resources>

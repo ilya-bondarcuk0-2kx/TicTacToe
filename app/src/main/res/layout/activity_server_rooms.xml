@@ -19,14 +19,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        >
+        tools:visibility="gone">
+
         <LinearLayout
             android:id="@+id/room_views_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"/>
-
+            android:orientation="vertical" />
 
 
     </ScrollView>
+
+    <ImageButton
+        android:id="@+id/load_rooms_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="19dp"
+        android:backgroundTint="#609B25"
+        android:contentDescription="@string/res_not_found"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_rotate" />
 </androidx.constraintlayout.widget.ConstraintLayout>

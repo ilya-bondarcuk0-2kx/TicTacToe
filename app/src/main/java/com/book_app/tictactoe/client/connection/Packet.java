@@ -10,7 +10,21 @@ public class Packet {
     private String command, pickedRoom, side , warning;
 
 
-    private int turn, index;
+
+
+    private int id;
+    private int turn;
+
+    public int getId() {
+        return id;
+    }
+
+    public Packet setId(int id) {
+        this.id = id;
+        return this;
+    }
+
+    private int index;
 
 
 

@@ -69,7 +69,7 @@ public class ServerGameFieldPresenter extends Presenter<ServerGameFieldModel, Se
     }
 
 
-    public void quitFromRoomAndClearResources() {
+    public void quitFromRoom() {
         DisposableManager.add(Observable.fromCallable(model::quitFromRoom)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

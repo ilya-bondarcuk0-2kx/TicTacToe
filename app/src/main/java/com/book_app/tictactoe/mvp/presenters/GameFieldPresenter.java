@@ -8,8 +8,6 @@ public class GameFieldPresenter extends Presenter<GameFieldModel, GameFieldView>
 
 
 
-
-
     public void updateCell(int index){
         model.updateCell(index);
         view().updateFieldOnUI(model.getCheckResult(), index, model.getUpdatedCellSide(index), model.getWinCombination());
@@ -22,4 +20,5 @@ public class GameFieldPresenter extends Presenter<GameFieldModel, GameFieldView>
     protected void updateView() {
 
     }
+
 }

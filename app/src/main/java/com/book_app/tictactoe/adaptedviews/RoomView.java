@@ -13,6 +13,7 @@ public class RoomView extends ConstraintLayout {
 
 
     private TextView roomNameBtn, connCount;
+    private int id;
 
 
 
@@ -35,6 +36,16 @@ public class RoomView extends ConstraintLayout {
     public void setConnCount(String count) {
 
         connCount.setText(String.format("%s/2", count));
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getRoomNameText(){

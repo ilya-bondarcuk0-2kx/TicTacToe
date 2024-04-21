@@ -14,27 +14,34 @@
         android:roundIcon="@drawable/app_icon2"
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.Light.TicTacToe"
+
         tools:targetApi="31">
         <activity
             android:name=".activities.local.BotGameActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
 
         <service android:name=".client.connection.backgroundservice.ServerService" />
 
         <activity
             android:name=".activities.server.ServerRoomsActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".activities.local.SettingsActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".activities.server.ServerGameActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".activities.local.GameActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".activities.local.MainActivity"
+            android:name=".activities.server.MainActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,6 +53,7 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>

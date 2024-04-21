@@ -6,7 +6,7 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 
-import com.book_app.tictactoe.client.connection.GameConnectionHandler;
+import com.book_app.tictactoe.client.connection.ConnectionHandler;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -29,7 +29,7 @@ public class ServerService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        GameConnectionHandler.ServerConnection.connectToServer("192.168.1.177", 3000);
+        ConnectionHandler.ServerConnection.connectToServer("192.168.1.177", 3000);
 
         timer = new Timer();
 
@@ -37,7 +37,7 @@ public class ServerService extends Service {
             @Override
             public void run() {
 
-                if(!GameConnectionHandler.isConnected()){
+                if(!ConnectionHandler.isConnected()){
                     /*TODO: Диалоговое окно для пользователя для переподключения к серверу*/
                 }
 
@@ -50,7 +50,7 @@ public class ServerService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        GameConnectionHandler.ServerConnection.disconnectFromServer();
+        ConnectionHandler.ServerConnection.disconnectFromServer();
     }
 
 

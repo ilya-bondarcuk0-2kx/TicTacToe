@@ -9,6 +9,7 @@ public class TicTacToeApplication extends Application {
     public void onCreate() {
         super.onCreate();
 //        startService(new Intent(this, ServerService.class));
+
         /*TODO: тема приложения*/
     }
 

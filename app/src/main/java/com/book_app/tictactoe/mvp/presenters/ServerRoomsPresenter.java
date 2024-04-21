@@ -1,24 +1,26 @@
 package com.book_app.tictactoe.mvp.presenters;
 
+import com.book_app.tictactoe.client.connection.ConnectionHandler;
 import com.book_app.tictactoe.client.javarxadapted.DisposableManager;
-import com.book_app.tictactoe.mvp.models.ServerRoomsModel;
+import com.book_app.tictactoe.mvp.models.RoomModel;
 import com.book_app.tictactoe.mvp.presenters.abstractpresenter.Presenter;
+import com.book_app.tictactoe.mvp.services.RoomService;
 import com.book_app.tictactoe.mvp.views.ServerRoomsView;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class ServerRoomsPresenter extends Presenter<ServerRoomsModel, ServerRoomsView> {
+public class ServerRoomsPresenter extends Presenter<RoomModel, ServerRoomsView> {
 
 
 
     public void getRooms(){
-        if(model.isConnected()) {
-            DisposableManager.add(Observable.fromCallable(model::roomsRequest)
+        if(ConnectionHandler.isConnected()) {
+            DisposableManager.add(Observable.fromCallable(RoomService::roomsRequest)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(result -> view().showRoomsOnUI(result.first , result.second),
+                .subscribe(result -> view().showRoomsOnUI(result),
                            throwable -> view().showFailConnectToServerResultOnUI()));
             return;
         }
@@ -28,11 +30,11 @@ public class ServerRoomsPresenter extends Presenter<ServerRoomsModel, ServerRoom
 
     public void pickRoom(String roomName){
 
-        if(model.isConnected()) {
-            DisposableManager.add(Observable.fromCallable(() -> model.pickRoomRequest(roomName))
+        if(ConnectionHandler.isConnected()) {
+            DisposableManager.add(Observable.fromCallable(() -> RoomService.pickRoomRequest(roomName))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(message -> view().showPickRoomResultOnUI(message.equals("room-picked")),
+                    .subscribe(packet -> view().showPickRoomResultOnUI(packet.getWarning().equals("room-picked")),
                                throwable -> view().showFailConnectToServerResultOnUI()));
             return;
         }

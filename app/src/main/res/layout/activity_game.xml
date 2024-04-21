@@ -44,14 +44,14 @@
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/res_not_found"
-
+                android:backgroundTint="@color/dark_green"
                 android:scaleType="fitCenter" />
 
             <ImageButton
                 android:id="@+id/img2"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
-
+                android:backgroundTint="@color/dark_green"
                 android:contentDescription="@string/res_not_found"
                 android:scaleType="fitCenter"
                 tools:ignore="ImageContrastCheck" />
@@ -60,7 +60,7 @@
                 android:id="@+id/img3"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
-
+                android:backgroundTint="@color/dark_green"
                 android:contentDescription="@string/res_not_found"
                 android:scaleType="fitCenter" />
         </LinearLayout>
@@ -75,6 +75,7 @@
                 android:id="@+id/img4"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
+                android:backgroundTint="@color/dark_green"
                 android:contentDescription="@string/res_not_found"
                 android:scaleType="fitCenter" />
 
@@ -82,6 +83,7 @@
                 android:id="@+id/img5"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
+                android:backgroundTint="@color/dark_green"
                 android:contentDescription="@string/res_not_found"
                 android:scaleType="fitCenter" />
 
@@ -89,6 +91,7 @@
                 android:id="@+id/img6"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
+                android:backgroundTint="@color/dark_green"
                 android:contentDescription="@string/res_not_found"
                 android:scaleType="fitCenter"
                 tools:ignore="ImageContrastCheck" />
@@ -99,13 +102,14 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="3dp"
+
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/img7"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
-
+                android:backgroundTint="@color/dark_green"
                 android:contentDescription="@string/res_not_found"
                 android:scaleType="fitCenter" />
 
@@ -113,7 +117,7 @@
                 android:id="@+id/img8"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
-
+                android:backgroundTint="@color/dark_green"
                 android:contentDescription="@string/res_not_found"
                 android:scaleType="fitCenter" />
 
@@ -121,7 +125,7 @@
                 android:id="@+id/img9"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
-
+                android:backgroundTint="@color/dark_green"
                 android:contentDescription="@string/res_not_found"
                 android:scaleType="fitCenter" />
 

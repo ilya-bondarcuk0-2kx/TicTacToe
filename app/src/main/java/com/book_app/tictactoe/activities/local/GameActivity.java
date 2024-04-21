@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.book_app.tictactoe.R;
-import com.book_app.tictactoe.client.javarxadapted.DisposableManager;
+import com.book_app.tictactoe.application.settings.SettingsManager;
 import com.book_app.tictactoe.game.enums.CheckResult;
 import com.book_app.tictactoe.game.sides.Cross;
 import com.book_app.tictactoe.game.sides.Side;
@@ -30,7 +30,10 @@ public class GameActivity extends AppCompatActivity implements GameFieldView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
+
 
         setContentView(R.layout.activity_game);
         Button restart_btn = findViewById(R.id.restart_game_btn);

@@ -6,6 +6,6 @@ public class MediumBot extends Bot{
 
     @Override
     public int analyzeGameField(GameField gameField) {
-        return 0;
+        return 8;
     }
 }

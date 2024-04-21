@@ -1,8 +1,8 @@
 package com.book_app.tictactoe.mvp.models;
 
 import com.book_app.tictactoe.client.connection.Client;
+import com.book_app.tictactoe.client.connection.ConnectionHandler;
 import com.book_app.tictactoe.client.connection.Packet;
-import com.book_app.tictactoe.client.connection.GameConnectionHandler;
 import com.book_app.tictactoe.game.enums.CheckResult;
 import com.book_app.tictactoe.game.gamecontroller.GameField;
 import com.book_app.tictactoe.game.sides.Side;
@@ -34,7 +34,7 @@ public class ServerGameFieldModel {
 
 
     public void sendPacket(int index) {
-        GameConnectionHandler.sendPacket(new Packet()
+        ConnectionHandler.sendPacket(new Packet()
                 .setCommand("turn")
                 .setRoomName(Client.getPickedRoom())
                 .setSide(Client.getSide())
@@ -43,7 +43,7 @@ public class ServerGameFieldModel {
 
     public boolean sendPickedSide(){
 
-        return GameConnectionHandler.sendPacket(new Packet()
+        return ConnectionHandler.sendPacket(new Packet()
                 .setCommand("pick-side")
                 .setRoomName(Client.getPickedRoom())
                 .setSide(Client.getSide()));
@@ -51,13 +51,13 @@ public class ServerGameFieldModel {
     }
 
     public boolean quitFromRoom(){
-        return GameConnectionHandler.sendPacket(new Packet()
+        return ConnectionHandler.sendPacket(new Packet()
                 .setCommand("quit")
                 .setRoomName(Client.getPickedRoom()));
     }
 
     public Packet receivePacket(){
-        return GameConnectionHandler.receivePacket();
+        return ConnectionHandler.receivePacket();
     }
 
 

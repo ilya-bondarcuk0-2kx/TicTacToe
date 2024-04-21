@@ -1,7 +1,9 @@
 package com.book_app.tictactoe.activities.local;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
+import static com.book_app.tictactoe.activities.constants.BotMode.EASY;
+import static com.book_app.tictactoe.activities.constants.BotMode.HARD;
+import static com.book_app.tictactoe.activities.constants.BotMode.IMPOSSIBLE;
+import static com.book_app.tictactoe.activities.constants.BotMode.MEDIUM;
 
 import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
@@ -9,37 +11,45 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.book_app.tictactoe.R;
+import com.book_app.tictactoe.adaptedviews.VariableAlertDialog;
+import com.book_app.tictactoe.adaptedviews.VariableToast;
+import com.book_app.tictactoe.application.settings.SettingsManager;
 import com.book_app.tictactoe.game.enums.CheckResult;
-import com.book_app.tictactoe.game.sides.Cross;
 import com.book_app.tictactoe.game.sides.Side;
 import com.book_app.tictactoe.mvp.models.BotGameFieldModel;
-import com.book_app.tictactoe.mvp.models.GameFieldModel;
 import com.book_app.tictactoe.mvp.presenters.BotGameFieldPresenter;
-import com.book_app.tictactoe.mvp.presenters.GameFieldPresenter;
 import com.book_app.tictactoe.mvp.views.GameFieldView;
 
-import java.security.spec.ECField;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class BotGameActivity extends AppCompatActivity implements GameFieldView {
 
     private BotGameFieldPresenter presenter;
-    private TextView state;
     private final ArrayList<ImageButton> cellImageButtons = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_game);
-        Button restart_btn = findViewById(R.id.restart_game_btn);
-        state = findViewById(R.id.state);
+
+
+        setContentView(R.layout.activity_bot_game);
+
+
+        Button restartBtn = findViewById(R.id.restart_game_btn);
+        ImageView botImage = findViewById(R.id.bot_image); //TODO: Должны подгружаться разные изображения, в зависимости от сложности бота
 
         presenter = new BotGameFieldPresenter();
-//        presenter.setModel(new BotGameFieldModel()); // TODO: решить как поступить с выбром бота
+        presenter.setBot(Objects.requireNonNull(getIntent().getStringExtra("dif")));
+        presenter.setModel(new BotGameFieldModel());
 
         cellImageButtons.add(findViewById(R.id.img1));
         cellImageButtons.add(findViewById(R.id.img2));
@@ -56,7 +66,35 @@ public class BotGameActivity extends AppCompatActivity implements GameFieldView 
             int index = i;
             cellImageButtons.get(i).setOnClickListener(l -> presenter.updateCell(index));
         }
-        restart_btn.setOnClickListener(l -> BotGameActivity.this.recreate());
+        botImage.setOnClickListener(l -> VariableAlertDialog.buildCustomDialog(
+                this,
+                "Выберите сложность ИИ" ,
+                new String[]{"Легкий", "Нормальный", "Сложный", "Невозможный"},
+                (dialogDif, whichDif) -> {
+                    switch (whichDif){
+                        case EASY:
+                            getIntent().putExtra("dif", "es");
+                            recreate(); //TODO: Когда все боты будут доделаны, нужно будет сместить запуск просто в самый низ в данном участке кода
+                            break;
+                        case MEDIUM:
+                            VariableToast.makeText(this, "В разработке", Toast.LENGTH_SHORT).show();
+//                            getIntent().putExtra("dif", "md");
+                            break;
+                        case HARD:
+                            VariableToast.makeText(this, "В разработке", Toast.LENGTH_SHORT).show();
+//                            getIntent().putExtra("dif", "hd");
+                            break;
+                        case IMPOSSIBLE:
+                            VariableToast.makeText(this, "В разработке", Toast.LENGTH_SHORT).show();
+//                            getIntent().putExtra("dif", "im");
+                            break;
+                    }
+
+                },
+                "Назад",
+                (dialogDif, whichDif) -> dialogDif.cancel(),
+                false).show());
+        restartBtn.setOnClickListener(l -> BotGameActivity.this.recreate());
     }
 
     @Override
@@ -64,6 +102,7 @@ public class BotGameActivity extends AppCompatActivity implements GameFieldView 
         super.onResume();
         presenter.bindView(this);
     }
+
 
     @Override
     protected void onPause() {
@@ -78,21 +117,20 @@ public class BotGameActivity extends AppCompatActivity implements GameFieldView 
         cellImageButtons.get(index).setOnClickListener(null);
         switch (checkResult) {
             case CROSS_WIN:
-                state.setText("Крестики выиграли");
+
                 showWinCombination(winCombination);
                 setListenersToNull();
                 return;
             case ZERO_WIN:
-                state.setText("Нолики выиграли");
+
                 setListenersToNull();
                 showWinCombination(winCombination);
                 return;
             case DRAW:
-                state.setText("Ничья");
+
                 setListenersToNull();
                 return;
         }
-        changeState(side);
     }
 
     private void setListenersToNull() {
@@ -104,6 +142,8 @@ public class BotGameActivity extends AppCompatActivity implements GameFieldView 
 
     }
 
+
+
     @SuppressLint("ResourceAsColor")
     private void showWinCombination(ArrayList<Integer> winCombination) {
 
@@ -112,10 +152,5 @@ public class BotGameActivity extends AppCompatActivity implements GameFieldView 
         }
     }
 
-    private void changeState(Side side) {
-        if (side.getClass() == Cross.class)
-            state.setText("Нолики ходят");
-        else
-            state.setText("Крестики ходят");
-    }
+
 }

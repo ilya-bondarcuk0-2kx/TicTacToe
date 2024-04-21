@@ -99,7 +99,7 @@ public class ServerGameActivity extends AppCompatActivity implements ServerGameF
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        presenter.quitFromRoomAndClearResources();
+        presenter.quitFromRoom();
     }
 
 
